@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{padding: 0;margin: 0;}
+        .mian{width: 800px;margin: 0 auto;overflow: hidden;}
+        .mian .tab span{display: inline-block; padding: 10px;border: solid 1px red;cursor: pointer;}
+        .mian .tab span.active{background-color: pink;}
+        .mian .tabConetnt{width: 100%;overflow: hidden}
+        .mian .tabConetnt ul{width: 100%;overflow: hidden}
+        .mian .tabConetnt ul li{width: 100%;height: 100%;background-color: pink;height: 300px;display: none;}
+        .mian .tabConetnt ul li.show{display: block}
+    </style>
+    <script>
+        window.onload=function () {
+            var spans=document.getElementsByTagName("span");
+            var lis=document.getElementsByTagName("li");
+            for (i=0;i<spans.length;i++){
+                spans[i].index=i;
+                spans[i].onmouseover=function () {
+                    for (j=0;j<spans.length;j++){
+                        spans[j].className="";
+                        lis[j].className="";
+                    }
+                    this.className="active";
+                    lis[this.index].className="show";
+                }
+
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="mian">
+    <div class="tab" >
+        <span class="active">切换1</span>
+        <span>切换1</span>
+        <span>切换1</span>
+        <span>切换1</span>
+    </div>
+    <div class="tabConetnt">
+        <ul>
+            <li class="show">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
