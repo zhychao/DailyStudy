@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        body{background: url("../statics/img/1.jpg") repeat}
+    </style>
+    <script>
+        window.onload=function () {
+            var slet=document.getElementById("sel");
+            //var body=document.getElementsByTagName("body");
+            slet.onchange=function () {
+                var sletvalue=slet.value;
+                //alert(sletvalue);
+                switch (sletvalue){
+                    case "1": {
+                        alert("aa")
+                        document.body.style.backgroundImage="url(../statics/img/1.jpg)";
+                        break;
+                    }
+                    case "2": {
+                        alert("bb")
+                        document.body.style.backgroundImage="url(../statics/img/2.jpg)";
+                        break;
+                    }
+                    case "3": {
+                        alert("cc")
+                        document.body.style.backgroundImage="url(../statics/img/3.jpg)";
+                        break;
+                    }
+                    case "4": {
+                        alert("dd")
+                        document.body.style.backgroundImage="url(../statics/img/4.jpg)";
+                        break;
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<div>
+    <select id="sel">
+        <option value="1">背景1</option>
+        <option value="2">背景2</option>
+        <option value="3">背景3</option>
+        <option value="4">背景4</option>
+    </select>
+</div>
+</body>
+</html>
