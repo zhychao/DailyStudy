@@ -37,15 +37,19 @@
                     s="0"+s;
                 }
                 clock.innerHTML="剩余时间："+ d +"天" + h +"小时" + m + "分" + s + "秒";
+                var aa=clock.innerText;
+                console.log(aa)
+                if(m==42){
+                    var demo=document.createElement("div");
+                    clock.appendChild(demo);
+                    demo.innerText="测试一下";
+                }
             }
 
         }
     </script>
 </head>
 <body>
-<div class="clock" id="clock">
-    剩余时间：12天23小时53分26秒
-
-</div>
+<div class="clock" id="clock"></div>
 </body>
 </html>
