@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .clock{text-align: center;  padding: 20px;  font-size: 30px;  color: red;}
+    </style>
+    <script>
+        window.onload=function () {
+            var clock=document.getElementById("clock");
+            var endate=new Date("2017/06/26 18:00:00").getTime();
+            setInterval(clock1,1000);
+            function clock1() {
+                var nowday=new Date();
+                var ms=nowday.getTime();
+                var second=parseInt((endate-ms)/1000);
+                var d=parseInt(second/3600/24);
+                var h=parseInt(second/3600%24);
+                var m=parseInt(second/60%60);
+                var s=parseInt(second%60);
+                console.log(d)
+               /* d<10 ? d="0"+d:d;
+                h<10 ? h="0"+h:h;
+                m<10 ? m="0"+m:m;
+                s<10 ? s="0"+s:s;*/
+               if (d<10){
+                   d="0"+d;
+               }
+                if (h<10){
+                    h="0"+h;
+                }
+                if (m<10){
+                    m="0"+m;
+                }
+                if (s<10){
+                    s="0"+s;
+                }
+                clock.innerHTML="剩余时间："+ d +"天" + h +"小时" + m + "分" + s + "秒";
+            }
+
+        }
+    </script>
+</head>
+<body>
+<div class="clock" id="clock">
+    剩余时间：12天23小时53分26秒
+
+</div>
+</body>
+</html>
