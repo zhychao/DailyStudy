@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .clock{ width: 600px; height: 600px; margin: 0 auto;background: url("../statics/img/clock/clock.jpg") no-repeat center;position: relative;}
+        .clock>div{ width: 100%;height: 100%;position: absolute;}
+        .clock .hours{background: url("../statics/img/clock/hour.png") no-repeat center;left: 0;top:0px;}
+        .clock .minutes{background: url("../statics/img/clock/minute.png") no-repeat center;left: 0;top:0px;}
+        .clock .seconds{background: url("../statics/img/clock/second.png") no-repeat center;left: 0;top:0px;}
+        .clock .daytime{text-align: center;}
+        .clock .daytime span{    position: relative;
+            top: 195px;
+            left: 0px;
+            display: inline-block;
+            padding: 5px;
+            opacity: 0.9;
+            color: deeppink;
+            font-size: 20px;
+            font-weight: bold;}
+    </style>
+    <script>
+        window.onload=function () {
+            var hours=document.getElementById("hours");
+            var minutes=document.getElementById("minutes");
+            var seconds=document.getElementById("seconds");
+            var daytime=document.getElementById("daytime");
+           // 开始时计时器定
+            var h=0,m=0,s=0,ms=0;
+            var arr=["星期日","星期一","星期二","星期三","星期四","星期五","星期六"]
+            setInterval(function () {
+                var date=new Date();
+                var y=date.getFullYear();
+                var month=date.getMonth()+1;
+                var day=date.getDate();
+                var weekday=arr[date.getDay()];
+                console.log(y);
+                console.log(month);
+                console.log(day);
+                console.log(weekday);
+
+                ms=date.getMilliseconds();//获取现在的毫秒数
+                s=date.getSeconds()+ms/1000;//获取现在的秒数
+                m=date.getMinutes()+s/60;//获取现在的分钟数
+                h=date.getHours()%12+m/60;//获取现在时钟
+                console.log(h);
+                seconds.style.transform='rotate('+s*6+'deg)';
+                minutes.style.transform='rotate('+m*6+'deg)';
+                hours.style.transform='rotate('+h*30+'deg)';
+                daytime.innerHTML=y+"年"+month+"月"+day+"日"+ " "+weekday;
+            },1000)
+        }
+    </script>
+</head>
+<body>
+<div class="clock" id="clock">
+    <div class="hours" id="hours"></div>
+    <div class="minutes" id="minutes"></div>
+    <div class="seconds" id="seconds"></div>
+    <div class="daytime">
+        <span id="daytime">2016-12-12</span>
+
+    </div>
+</div>
+</body>
+</html>
