@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .clock{text-align: center;  padding: 20px;  font-size: 30px;  color: red;}
+    </style>
+    <script>
+        window.onload=function () {
+            var btn=document.getElementById("btn");
+            var count=145.188;
+            var str=count+"";//纯数字没办法返回，加字符串转换成字符串类型
+            var index=str.indexOf(".");//返回小数点的位置
+            console.log(index);
+            var sub=str.substr(0,index+3);
+            console.log(sub);
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>
