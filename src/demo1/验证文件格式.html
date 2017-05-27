@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .clock{text-align: center;  padding: 20px;  font-size: 30px;  color: red;}
+    </style>
+    <script>
+        window.onload=function () {
+            var btn=document.getElementById("btn");
+            var file=document.getElementById("file");
+            btn.onclick=function () {
+                var v=file.value;
+                var str=v.lastIndexOf(".");
+                var fileNmae=v.substr(str).toUpperCase();//截取返回的文件格式，并且转换为大写字母
+                alert(fileNmae);
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="clock" id="clock">
+    <input type="file" id="file">
+    <button type="button" id="btn">点击</button>
+</div>
+</body>
+</html>
