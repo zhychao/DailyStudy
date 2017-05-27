@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .clock{text-align: center;  padding: 20px;  font-size: 30px;  color: red;}
+    </style>
+    <script>
+        window.onload=function () {
+            var btn=document.getElementById("btn");
+            var count=10;
+            btn.onclick=function () {
+                btn.disabled=true;
+                var timer=setInterval(sentMessage,1000);
+                function sentMessage() {
+                    count--;
+                    if (count<0){
+                        btn.innerHTML="重新发送";
+                        btn.disabled=false;
+                        clearInterval(timer);
+                        count=10;
+                    }else {
+                        btn.innerHTML="还剩余"+count+"秒";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="clock" id="clock">
+    <input type="text">
+    <button type="button" id="btn">发送短信验证</button>
+</div>
+</body>
+</html>
