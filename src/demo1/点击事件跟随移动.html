@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{width: 100px;height: 100px;position: absolute;top: 0px;left: 0px;background: pink;}
+    </style>
+</head>
+<body>
+<div class="box" id="box"></div>
+</body>
+</html>
+<script>
+    var demo=document.getElementById("box");
+    var leader=0;
+    var leaderY=0;
+    var targetX=0;
+    var targetY=0;
+    document.onclick=function (event) {
+        event=event||window.event;
+        targetX=event.clientX-demo.offsetWidth/2;
+        targetY=event.clientY-demo.offsetHeight/2;
+
+    }
+    setInterval(function () {
+        leader=leader+(targetX-leader)/10;
+        leaderY=leaderY+(targetY-leaderY)/10;
+        demo.style.left=leader+"px";
+        demo.style.top=leaderY+"px";
+
+    },20)
+
+
+</script>
