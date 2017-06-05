@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            margin: 50px;width: 300px;height: 300px;position: relative;left: 0px;  top: 50px;background: pink}
+    </style>
+</head>
+<body>
+<button id="btn">点击</button>
+<div class="box" id="box"></div>
+</body>
+</html>
+<script>
+    var demo=document.getElementById("box");
+    demo.onmousemove=function (event) {
+        var event=event||window.event;
+        var x=event.clientX-demo.offsetLeft;
+        var y=event.clientY-demo.offsetTop;
+        console.log(x+"px","",y+"px");
+
+
+
+    }
+</script>
