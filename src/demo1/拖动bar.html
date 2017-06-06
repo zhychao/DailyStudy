@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{width: 500px;height: 15px;position: relative;margin:150px auto;background: pink}
+        .bar{width: 20px;height: 25px;position: absolute;background: bisque;left: 0;
+            top:-5px;}
+    </style>
+</head>
+<body>
+<div class="box" id="box">
+    <div class="bar"></div>
+</div>
+</body>
+</html>
+<script>
+    var line=document.getElementById("box");
+    var bar=line.children[0];
+    bar.onmousedown=function (event) {
+        //alert("ss")
+        var event=event||window.event;
+        var lineleft=event.clientX-bar.offsetLeft;
+        document.onmousemove=function (event) {
+            var event=event||window.event;
+            var c=event.clientX-lineleft;
+            if (c<0){
+                c=0;
+            }else if (c>480){
+                c=480;
+            }
+            bar.style.left=c+"px";
+            console.log(c);
+
+        }
+    }
+    document.onmouseup=function () {
+        document.onmousemove=null;
+    }
+</script>
