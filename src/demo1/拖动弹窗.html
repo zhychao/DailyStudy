@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        .content{ width: 100%; height: 500px;position: relative;}
+        .content .tuo{     width: 500px;
+            height: 300px;
+            background: pink;position: absolute;left: 50%;top: 50%;margin-left: -250px;margin-top: -150px;}
+        .content .tuo p{ padding: 10px;background: #cccccc;cursor: move;}
+    </style>
+</head>
+<body>
+<div class="content" id="box">
+    <div class="tuo">
+        <p>导航（可拖动）</p>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    var box=document.getElementById("box");
+    var tuo=box.children[0];
+    var tuodong=tuo.children[0];
+    tuodong.onmousedown=function (event) {
+        var event=event||window.event;
+        var x=event.clientX-tuo.offsetLeft-250;
+        var y=event.clientY-tuo.offsetTop-150;
+        document.onmousemove=function (event) {
+            var event=event||window.event;
+            tuo.style.left=event.clientX-x+"px";
+            tuo.style.top=event.clientY-y+"px";
+        }
+    }
+    document.onmouseup=function () {
+        document.onmousemove=null;
+    }
+
+</script>
