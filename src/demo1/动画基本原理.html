@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 100px;
+            height:100px;
+            background: pink;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<button>点击</button>
+<div class="box"></div>
+</body>
+</html>
+<script>
+    var btn=document.getElementsByTagName("button")[0];
+    var box=document.getElementsByTagName("div")[0];
+    btn.onclick=function () {
+        timer=setInterval(function () {
+            if (box.offsetLeft>800){
+                clearInterval(timer);
+            }
+            box.style.left=box.offsetLeft+10+"px";
+        },100);
+    }
+</script>
